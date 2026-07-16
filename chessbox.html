@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        #chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            gap: 0;
+            border: 3px solid #333;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .square.white {
+            background-color: #ffffff;
+        }
+
+        .square.black {
+            background-color: #000000;
+        }
+
+        .square:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chessboard</h1>
+        <div id="chessboard"></div>
+    </div>
+
+    <script>
+        // Generate 8x8 chessboard
+        const chessboard = document.getElementById('chessboard');
+        
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                
+                // Alternate colors: if sum of row and col is even, it's white
+                if ((row + col) % 2 === 0) {
+                    square.classList.add('white');
+                } else {
+                    square.classList.add('black');
+                }
+                
+                chessboard.appendChild(square);
+            }
+        }
+    </script>
+</body>
+</html>
