@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meme</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin-top: 50px;
+                background-color: #f0f0f0;
+            }
+            .gallery-container {
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                max-width: 600px;
+                margin: 0 auto;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            img {
+                max-width: 100%;
+                height: 400px;
+                width: 100%;
+                border-radius: 8px;
+                object-fit: contain;
+            }
+            .meme-text {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 20px;
+                color: #333;
+            }
+            .meme-counter {
+                font-size: 16px;
+                color: #666;
+                margin-top: 15px;
+            }
+            .button-container {
+                margin-top: 20px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            button:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+            .ball{
+                width: 50px;
+                height: 50px;
+                background-color: #007bff;
+                border-radius: 50%;
+                margin: 20px auto;
+                position: relative;
+                top:10px;
+                animation: bounce 2s infinite;
+            }
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                }
+                40% {
+                    transform: translateY(-30px);
+                }
+                60% {
+                    transform: translateY(-15px);
+                }
+            }
+            </style>
+    </head>
+    <body>
+        <h1>Meme Gallery</h1>
+        <div class="gallery-container">
+            <h1 class="meme-text" id="memeTitle">When you realize you have to finish your homework before playing video games</h1>
+            <img id="memeImage" src="https://i.imgflip.com/4/3vzej.jpg" alt="Meme Image">
+            <p class="meme-counter">Meme <span id="currentMeme">1</span> of <span id="totalMemes">5</span></p>
+            <div class="button-container">
+                <button onclick="previousMeme()">← Previous</button>
+                <button onclick="nextMeme()">Next →</button>
+            </div>
+            <h1 class="ball"></h1>
+        </div>
+
+        <script>
+            const memes = [
+                {
+                    title: "When you realize you have to finish your homework before playing video games",
+                    image: "https://i.imgflip.com/4/3vzej.jpg"
+                },
+                {
+                    title: "It's over 9000!",
+                    image: "https://i.imgflip.com/3oh0ey.jpg"
+                },
+                {
+                    title: "One does not simply forget JavaScript",
+                    image: "https://i.imgflip.com/1bij.jpg"
+                },
+                {
+                    title: "When your code works on the first try",
+                    image: "https://i.imgflip.com/1h7in3.jpg"
+                },
+                {
+                    title: "Me vs The code I wrote 6 months ago",
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKEJyKrKvKQH9XlZVcKKbpkYdZFpvdug7OQdrxLHL6ggclL5fWmLAo9Xk&s=300"
+                },
+                {
+                    title: "When you try to fix a bug in production",
+                    image: "https://i.imgflip.com/1g8my4.jpg"
+                },
+                {
+                    title: "HTML is a programming language",
+                    image: "https://i.imgflip.com/24y43o.jpg"
+                },
+                {
+                    title: "Read the documentation or draw 25",
+                    image: "https://i.imgflip.com/3lmzyx.jpg"
+                },
+                {
+                    title: "It works on my machine",
+                    image: "https://i.imgflip.com/261o3j.jpg"
+                }
+            ];
+
+            let currentIndex = 0;
+
+            function displayMeme(index) {
+                const meme = memes[index];
+                document.getElementById("memeTitle").textContent = meme.title;
+                document.getElementById("memeImage").src = meme.image;
+                document.getElementById("currentMeme").textContent = index + 1;
+                document.getElementById("totalMemes").textContent = memes.length;
+            }
+
+            function nextMeme() {
+                currentIndex = (currentIndex + 1) % memes.length;
+                displayMeme(currentIndex);
+            }
+
+            function previousMeme() {
+                currentIndex = (currentIndex - 1 + memes.length) % memes.length;
+                displayMeme(currentIndex);
+            }
+
+            // Initialize gallery
+            displayMeme(currentIndex);
+        </script>
+    </body>        
+</html>
