@@ -1,0 +1,257 @@
+.nav{
+    /* Fix: position notification image inside navbar; prevent off-screen placement */
+    background-color: aqua;
+    background: linear-gradient(120deg,rgb(254, 44, 44),rgb(84, 168, 246));
+    opacity: 0.8;
+    position: relative; /* contain absolutely positioned icon */
+}
+nav ol{
+    list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0;
+            margin: 0;
+            text-decoration: burlywood;
+            
+}
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-decoration: rgb(242, 236, 236);
+    position: relative;
+    right: 0%;
+    top:40px
+}
+.title{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 20px;
+    letter-spacing: 1px;
+    text-decoration: transparent;
+    text-shadow: 0 0 5px #fff;
+opacity: 1;
+    
+}
+.subtitle{
+    text-align: center;
+    color: black;
+    font-weight: 400;
+    margin: 0 0 30px;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+.forgot{
+    text-align: center;
+    color: black;
+    font-weight: 400;
+    margin: 20px 0 10px;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+.signup{
+    text-align: center;
+    color: black;
+    font-weight: 400;
+    margin: 10px 0 20px;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+
+.icon{ 
+    font-size: 1.5rem;
+    position: absolute; /* position icon inside navbar */
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: transparent;
+    height: 42px;
+    width: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white;
+}
+.icon img{
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: static;
+    top: auto;
+    right: auto;
+    animation: shake 0.5s linear infinite;
+}
+.dot{ 
+    font-size: 1rem;
+    position: relative; /* position relative to navbar */
+    right: 12px; /* place inside navbar on the right */
+    top: -10px;
+    left: 90%;
+}
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    right: 0%;
+    top:40px
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.gg{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 20px;
+    letter-spacing: 1px;
+    background-color: transparent;
+    background: linear-gradient(150deg,red ,rgb(60, 154, 87));
+}
+.login{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: bisque;
+    padding: 20px;
+}
+.box{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    box-shadow: inset 0 0 10px #000;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    opacity: 0.8;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    position: relative;
+}
+.showicon{
+    position: absolute;
+    top: 215px;
+    right: 40px;
+    width: 34px;
+    height: 34px;
+    background-image: url('show.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.circle1{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    border: 2px solid #c1cc7e;
+    z-index: 0;
+}
+.circle2{
+    position: absolute;
+    top: 30%;
+    right: 8%;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(86, 67, 179, 0.5);
+    border-radius: 50%;
+    border: 2px solid #9650d7;
+    z-index: 0;
+}
+h1{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 20px;
+    letter-spacing: 1px;
+}
+input[type="text"], input[type="password"]{
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #fff;
+    background: snow;
+    outline: none;
+    color: black;
+    font-size: 16px;
+border-radius: 10px;
+}
+@keyframes shake{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+img{
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    animation:shake 0.5s linear infinite;
+}
+
+@keyframes big{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}
+button{
+    width: 100%;
+    background: #e71b14;
+    border: 2px solid #45b5e6;
+    padding: 5px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    animation: big 1s linear infinite alternate;
+}
