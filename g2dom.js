@@ -1,0 +1,21 @@
+const p=document.getElementById("text");
+const ptag=document.getElementsByClassName("text")[0];
+const pt=document.getElementsByTagName("p")[0];
+const pquery=document.querySelectorAll("#text");
+const q=document.querySelector(".text");
+// console.log(p);
+// console.log(ptag);
+// console.log(pt);
+// console.log(pquery);
+// p.innerText="Hello World";
+// p.innerHTML="<b>Hello World</b>";
+// ptag.innerText="Hello World";
+// pt.innerText="Hello World";
+// p.style.color="red";
+// p.style.fontSize="30px";
+const del=document.querySelectorAll(".text");
+// del.remove();
+const create=document.createElement("p");
+create.innerText="Hello World";
+document.body.appendChild(create);
+//dom means document object model

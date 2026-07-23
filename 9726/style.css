@@ -1,0 +1,74 @@
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+            }
+
+            h1.title {
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.5;
+                margin: 0 20px 20px;
+            }
+
+            section.content {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: #e31515;
+                padding: 20px;
+            }
+
+            .box1, .box2, .box3, .box4, .box5, .box6 {
+                width: 100px;
+                height: 100px;
+                margin: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                position: relative;
+                color: white;
+                left: 5px;
+                text-align: center;
+                border-radius: 6px;
+                transition: transform 160ms ease, box-shadow 160ms ease;
+            }
+
+            .box1 { background-color: rgb(0, 123, 255); color: white; }
+            .box2 { background-color: rgb(234, 170, 170); color: white; }
+            .box3 { background-color: rgb(40, 167, 69); color: white; }
+            .box4 { background-color: rgb(255, 193, 7); color: #222; }
+            .box5 { background-color: rgb(102, 16, 242); color: white; }
+            .box6 { background-color: rgb(13, 202, 240); color: #022; }
+
+             .box2:hover, .box3:hover, .box4:hover, .box5:hover, .box6:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            }
+            .box1:hover{
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .bigbox {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: gold;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border: 2px solid #82e4f7;
+            }

@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- Fix: use a browser-friendly relative video path and a responsive centered layout. -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GG</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: linear-gradient(135deg, #f7fbff 0%, #eef2ff 45%, #e7fff7 100%);
+            --card: rgba(255, 255, 255, 0.88);
+            --text: #18324a;
+            --muted: #5c6b7a;
+            --border: rgba(24, 50, 74, 0.12);
+            --shadow: 0 20px 60px rgba(24, 50, 74, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+
+        .card {
+            width: min(920px, 100%);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            letter-spacing: 0.08em;
+        }
+
+        p {
+            margin: 16px 0 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        video {
+            display: block;
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+            border-radius: 18px;
+            background: #000;
+            aspect-ratio: 16 / 9;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 18px;
+                border-radius: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <h1>GG</h1>
+        <video controls autoplay muted loop playsinline preload="auto">
+            <source src="videoplayback.mp4">
+        </video>
+        <p>This is a simple HTML page.</p>
+    </main>
+    <script>
+        window.addEventListener('load', () => {
+            const video = document.querySelector('video');
+            if (video) {
+                fetch('videoplayback.mp4')
+                    .then((response) => response.blob())
+                    .then((blob) => {
+                        video.src = URL.createObjectURL(blob);
+                        video.load();
+                        return video.play();
+                    })
+                    .catch(() => {});
+            }
+        });
+    </script>
+</body>
+</html>

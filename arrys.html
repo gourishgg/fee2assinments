@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Array Functions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      color: #0f4c81;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px auto;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    code {
+      background: #eef3f8;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #1f2937;
+      color: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Array Functions Demo</h1>
+
+  <div class="card">
+    <h2>Example Output</h2>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function showResult(label, value) {
+      const output = document.getElementById('output');
+      output.textContent += `${label}: ${JSON.stringify(value)}\n`;
+    }
+
+    const numbers = [10, 20, 30, 40];
+    const fruits = ['apple', 'banana', 'mango'];
+
+    showResult('Original numbers', numbers);
+    showResult('Original fruits', fruits);
+
+    const pushed = [...numbers];
+    pushed.push(50);
+    showResult('push(50)', pushed);
+
+    const popped = [...numbers];
+    popped.pop();
+    showResult('pop()', popped);
+
+    const shifted = [...numbers];
+    shifted.shift();
+    showResult('shift()', shifted);
+
+    const unshifted = [...numbers];
+    unshifted.unshift(5);
+    showResult('unshift(5)', unshifted);
+
+    const spliced = [...numbers];
+    spliced.splice(1, 2, 99, 100);
+    showResult('splice(1,2,99,100)', spliced);
+
+    const sliced = [...numbers];
+    showResult('slice(1,3)', sliced.slice(1, 3));
+
+    const concated = numbers.concat([60, 70]);
+    showResult('concat([60,70])', concated);
+
+    const doubled = numbers.map(n => n * 2);
+    showResult('map(n => n * 2)', doubled);
+
+    const evenNumbers = numbers.filter(n => n % 2 === 0);
+    showResult('filter(n => n % 2 === 0)', evenNumbers);
+
+    const total = numbers.reduce((sum, n) => sum + n, 0);
+    showResult('reduce(sum)', total);
+
+    const found = fruits.find(f => f.startsWith('b'));
+    showResult('find(f => f.startsWith("b"))', found);
+
+    const foundIndex = fruits.findIndex(f => f === 'mango');
+    showResult('findIndex(f => f === "mango")', foundIndex);
+
+    showResult('includes(20)', numbers.includes(20));
+    showResult('includes(100)', numbers.includes(100));
+
+    const sorted = [...numbers].sort((a, b) => b - a);
+    showResult('sort(desc)', sorted);
+
+    const reversed = [...numbers].reverse();
+    showResult('reverse()', reversed);
+
+    const allEven = numbers.every(n => n % 2 === 0);
+    showResult('every(n => n % 2 === 0)', allEven);
+
+    const hasLarge = numbers.some(n => n > 35);
+    showResult('some(n => n > 35)', hasLarge);
+
+    showResult('join(" - ")', numbers.join(' - '));
+    showResult('toString()', numbers.toString());
+  </script>
+</body>
+</html>

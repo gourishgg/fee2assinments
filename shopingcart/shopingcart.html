@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Shopping Cart Popup</title>
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Fresh picks</p>
+                <h1>Shop your favorites</h1>
+                <p>Browse trendy items and open your cart instantly.</p>
+            </div>
+            <button id="openCartBtn" class="cart-trigger">
+                🛒 View Cart <span id="cartCount">0</span>
+            </button>
+        </header>
+
+        <main class="products">
+            <article class="product-card">
+                <h2>Classic Sneakers</h2>
+                <p>$79</p>
+                <button class="add-to-cart" data-name="Classic Sneakers" data-price="79">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <h2>Leather Backpack</h2>
+                <p>$54</p>
+                <button class="add-to-cart" data-name="Leather Backpack" data-price="54">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <h2>Wireless Headphones</h2>
+                <p>$99</p>
+                <button class="add-to-cart" data-name="Wireless Headphones" data-price="99">Add to Cart</button>
+            </article>
+        </main>
+    </div>
+
+    <div id="cartOverlay" class="cart-overlay hidden">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Your Shopping Cart</h2>
+                <button id="closeCartBtn" class="close-btn" aria-label="Close cart">×</button>
+            </div>
+
+            <div id="cartItems" class="cart-items">
+                <p class="empty-state">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <strong id="cartTotal">$0</strong>
+                </div>
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cartOverlay = document.getElementById('cartOverlay');
+        const openCartBtn = document.getElementById('openCartBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        let cart = [];
+
+        function renderCart() {
+            if (!cart.length) {
+                cartItems.innerHTML = '<p class="empty-state">Your cart is empty.</p>';
+                cartCount.textContent = '0';
+                cartTotal.textContent = '$0';
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div>
+                        <strong>${item.name}</strong>
+                        <p>$${item.price}</p>
+                    </div>
+                    <span>${item.qty}x</span>
+                </div>
+            `).join('');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = `$${totalPrice}`;
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.dataset.name;
+                const price = Number(button.dataset.price);
+                const existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.qty += 1;
+                } else {
+                    cart.push({ name, price, qty: 1 });
+                }
+
+                renderCart();
+            });
+        });
+
+        openCartBtn.addEventListener('click', () => cartOverlay.classList.remove('hidden'));
+        closeCartBtn.addEventListener('click', () => cartOverlay.classList.add('hidden'));
+
+        cartOverlay.addEventListener('click', (event) => {
+            if (event.target === cartOverlay) {
+                cartOverlay.classList.add('hidden');
+            }
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>

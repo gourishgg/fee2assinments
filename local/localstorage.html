@@ -1,0 +1,58 @@
+<!-- Simple localStorage demo page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 32px;
+            max-width: 520px;
+        }
+        label, button {
+            display: block;
+            margin-top: 12px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+        }
+        #savedValue {
+            margin-top: 18px;
+            padding: 12px;
+            background: #f7f7f7;
+            border: 1px solid #ddd;
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Storage Demo</h1>
+    <p>Type text below and save it to browser local storage. Reload the page to verify persistence.</p>
+
+    <label for="itemKey">Storage key</label>
+    <input id="itemKey" type="text" value="savedText" />
+
+    <label for="itemTitle">Item title</label>
+    <input id="itemTitle" type="text" placeholder="Enter a title for this item" />
+
+    <label for="itemValue">Text to save</label>
+    <textarea id="itemValue" rows="4" placeholder="Enter text here..."></textarea>
+
+    <button id="saveButton" type="button">Save to localStorage</button>
+    <button id="loadButton" type="button">Load items</button>
+    <button id="searchButton" type="button">Search items</button>
+    <button id="clearButton" type="button">Clear stored value</button>
+
+    <label for="searchQuery">Search query</label>
+    <input id="searchQuery" type="text" placeholder="Search saved items" />
+
+    <div id="savedValue" aria-live="polite"></div>
+    <div id="savedItems"></div>
+
+    <script src="localstorag.js" defer></script>
+</body>
+</html>

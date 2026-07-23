@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+ 
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f261a5;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        nav {
+            padding: 1rem 0;
+            background: linear-gradient(to right, #2563eb,#bed07d, #1eaf66);
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            margin: 1.5rem auto 0;
+            animation: colorChange 5s infinite alternate;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #1eaf66;
+            animation: pulse 1s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #2563eb;
+            }
+            20% {
+                background-color: #1eaf66;
+            }
+            30% {
+                background-color: #de9124;
+            }
+            40% {
+                background-color: #3173ac;
+            }
+            50% {
+                background-color: #61388f;
+            }
+            60% {
+                background-color: #ef8be3;
+            }
+            70% {
+                background-color: #f10d33;
+            }
+            80% {
+                background-color: #cfc6c8;
+            }
+            90% {
+                background-color: #244fab;
+            }
+            100% {
+                background-color: #1eaf66;
+            }
+        }
+
+        h1,
+        h2 {
+            color: #ffffff;
+        }
+
+        h1,
+        h2,
+        p {
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1>Welcome to My Website</h1>
+    <h2 id="home">Home Section</h2>
+    <div class="login-container">
+        <h2>login</h2>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+    <h2 id="about">About Section</h2>
+    <p>This is the about section of the website. A nav bar, short for navigation bar, is a menu area in a website or app that helps users move between main sections. It usually contains links like Home, About, Services, Contact, or icons for search, profile, or settings.
+
+Commonly, it appears at the top of a page, but it can also be on the side or bottom. <br>Its job is to make navigation quick and predictable.        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.5</p>
+    <h2 id="contact">Contact Section</h2>
+    <p>This is the contact section of the website. A nav bar, short for navigation bar, is a menu area in a website or app that helps users move between main sections. It usually contains links like Home, About, Services, Contact, or icons for search, profile, or settings.
+
+Commonly, it appears at the top of a page, but it can also be on the side or bottom. Its job is to make navigation quick and predictable.</p>
+</body>
+</html>

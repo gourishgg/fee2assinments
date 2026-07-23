@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #8aaafa; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            animation: colorChange 5s infinite alternate;
+        }
+         
+button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+        }
+        button:hover {
+            background-color: #1eaf66;
+            animation: pulse 1s ;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes colorChange {
+            0% {
+                background-color: #2563eb;
+            }
+            20% {
+                background-color: #1eaf66;
+            }
+            30% {
+                background-color: #de9124;
+            }
+            40% {
+                background-color: #3173ac;
+            }50% {
+                background-color: #61388f;
+            }60% {
+                background-color: #ef8be3;
+            }
+            70% {
+                background-color: #f10d33;
+            }
+            80% {
+                background-color: #cfc6c8;
+            }
+            90% {
+                background-color: #244fab;
+            }
+            100% {
+                background-color: #1eaf66;
+            }
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.25rem;
+            
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+           
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+           
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>login</h2>
+        <h3></h3>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>
